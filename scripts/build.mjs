@@ -58,7 +58,8 @@ console.log(`  压缩后 ${(Buffer.byteLength(code) / 1024).toFixed(0)} KB → d
 await bundle.close()
 
 // ---------------- 生成 dist/index.html ----------------
-const css = fs.existsSync(path.join(outDir, 'app.css'))
+// 注意：app.css 由后续 `tailwindcss CLI` 步骤产出，此处不要依赖 existsSync 检测，
+// 否则在全新构建（如 Vercel 首次部署）时 app.css 尚未生成会导致漏注入 <link>。
 const html = `<!doctype html>
 <html lang="zh-CN">
   <head>
@@ -76,7 +77,7 @@ const html = `<!doctype html>
       href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    ${css ? '    <link rel="stylesheet" href="./assets/app.css" />' : ''}
+    <link rel="stylesheet" href="./assets/app.css" />
   </head>
   <body>
     <div id="root"></div>
