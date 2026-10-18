@@ -1,0 +1,35 @@
+{
+  "name": "clec-ciyun",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "CLEC 理财文献 · 理念与短语词云",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.build.json && node scripts/build.mjs && tailwindcss -i src/index.css -o dist/assets/app.css --minify",
+    "css": "tailwindcss -i src/index.css -o dist/assets/app.css --minify",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "serve": "python3 -m http.server 4173 --directory dist",
+    "extract": "python3 scripts/extract.py"
+  },
+  "dependencies": {
+    "echarts": "^5.5.1",
+    "echarts-wordcloud": "^2.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^29.0.3",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-terser": "^1.0.0",
+    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0"
+  }
+}

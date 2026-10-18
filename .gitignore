@@ -1,0 +1,4 @@
+/.build
+/.workbuddy
+/dist
+/node_modules

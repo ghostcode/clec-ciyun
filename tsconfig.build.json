@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "allowImportingTsExtensions": false,
+    "outDir": ".build",
+    "rootDir": "src",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ES2020",
+    "jsx": "react-jsx",
+    "resolveJsonModule": true,
+    "incremental": true,
+    "tsBuildInfoFile": ".build/.tsbuildinfo"
+  },
+  "include": ["src"]
+}
